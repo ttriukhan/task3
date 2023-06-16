@@ -1,13 +1,13 @@
 const productList = document.querySelector('.products');
 const inputField = document.querySelector('.input');
 const addBut = document.querySelector('.addBut');
-const box2Elements = document.querySelectorAll('.box2 .list .product-item');
+let box2Elements = document.querySelectorAll('.box2 .list .product-item');
 
 const minusButtonClass = 'minusBut';
 const plusButtonClass = 'plusBut';
 const deleteButtonClass = 'deleteBut';
 const buyButtonClass = 'buyBut';
-const productClass = 'product';9 
+const productClass = 'product';
 
 productList.addEventListener('click', handleProductListClick);
 addBut.addEventListener('click', handleAddButtonClick);
@@ -47,7 +47,7 @@ function handleMinusButtonClick(target) {
 
   const element = target.closest('.element');
   const itemNameElement = findByName(element, productClass).textContent.trim();
-  const box2Element = findBox2ElementByItemName(itemNameElement);
+  const box2Element = findBox2ElementByItemName(itemNameElement, box2Elements);
   if (box2Element) {
     findByName(box2Element, 'amount2').textContent = amount;
   }
@@ -61,15 +61,14 @@ function handlePlusButtonClick(target) {
 
   const element = target.closest('.element');
   const itemNameElement = findByName(element, productClass).textContent.trim();
-  const box2Element = findBox2ElementByItemName(itemNameElement);
+  const box2Element = findBox2ElementByItemName(itemNameElement, box2Elements);
   if (box2Element) {
     findByName(box2Element, 'amount2').textContent = amount;
   }
 }
 
-function findBox2ElementByItemName(itemName) {
-  const box2ItemElements = document.querySelectorAll('.box2 .list .product-item');
-  for (const box2Element of box2ItemElements) {
+function findBox2ElementByItemName(itemName, elements) {
+  for (const box2Element of elements) {
     const box2ItemNameElement = findByName(box2Element, 'name').textContent.trim();
     if (box2ItemNameElement === itemName) {
       return box2Element;
@@ -95,14 +94,14 @@ function handleBuyButtonClick(target) {
     target.classList.remove('bought');
   } else {
     existingBox2Element = findBox2ElementByItemName(itemNameElement, box2RemainElements);
-    
-      if (existingBox2Element) {
-        existingBox2Element.remove();
-        box2BoughtList.appendChild(existingBox2Element);
-        target.textContent = 'Не куплено';
-        target.classList.add('bought');
-      }
+
+    if (existingBox2Element) {
+      existingBox2Element.remove();
+      box2BoughtList.appendChild(existingBox2Element);
+      target.textContent = 'Не куплено';
+      target.classList.add('bought');
     }
+  }
 
   const item = findByName(element, productClass);
   item.classList.toggle('crossed');
@@ -114,16 +113,6 @@ function handleBuyButtonClick(target) {
   deleteButton.style.display = deleteButton.style.display === 'none' ? '' : 'none';
 }
 
-function findBox2ElementByItemName(itemName, elements) {
-  for (const box2Element of elements) {
-    const box2ItemNameElement = findByName(box2Element, 'name').textContent.trim();
-    if (box2ItemNameElement === itemName) {
-      return box2Element;
-    }
-  }
-  return null;
-}
-
 function handleProductEdit(target) {
   const itemNameElement = target.textContent.trim();
   const input = document.createElement('input');
@@ -132,23 +121,23 @@ function handleProductEdit(target) {
   target.replaceWith(input);
   input.focus();
   input.addEventListener('blur', () => {
-  const newProductName = input.value.trim();
-  if (newProductName !== '') {
-    const newProductSpan = document.createElement('span');
-    newProductSpan.classList.add(productClass);
-    newProductSpan.textContent = newProductName;
-    input.replaceWith(newProductSpan);
-    existingItems.delete(itemNameElement.toLowerCase());
-    existingItems.add(newProductName.toLowerCase());
+    const newProductName = input.value.trim();
+    if (newProductName !== '') {
+      const newProductSpan = document.createElement('span');
+      newProductSpan.classList.add(productClass);
+      newProductSpan.textContent = newProductName;
+      input.replaceWith(newProductSpan);
+      existingItems.delete(itemNameElement.toLowerCase());
+      existingItems.add(newProductName.toLowerCase());
 
-    const box2ItemElements = document.querySelectorAll('.box2 .list .product-item');
-    box2ItemElements.forEach((box2Element) => {
-      const box2ItemNameElement = findByName(box2Element, 'name').textContent.trim();
-      if (box2ItemNameElement === itemNameElement) {
-        findByName(box2Element, 'name').textContent = newProductName;
-      }
-    });
-  }
+      const box2ItemElements = document.querySelectorAll('.box2 .list .product-item');
+      box2ItemElements.forEach((box2Element) => {
+        const box2ItemNameElement = findByName(box2Element, 'name').textContent.trim();
+        if (box2ItemNameElement === itemNameElement) {
+          findByName(box2Element, 'name').textContent = newProductName;
+        }
+      });
+    }
   });
 }
 
@@ -160,10 +149,10 @@ function handleDeleteButtonClick(target) {
 
   const box2ItemElements = document.querySelectorAll('.box2 .list .product-item');
   box2ItemElements.forEach((box2Element) => {
-  const box2ItemNameElement = findByName(box2Element, 'name').textContent.trim();
-  if (box2ItemNameElement === itemNameElement) {
-    box2Element.remove();
-  }
+    const box2ItemNameElement = findByName(box2Element, 'name').textContent.trim();
+    if (box2ItemNameElement === itemNameElement) {
+      box2Element.remove();
+    }
   });
 }
 
@@ -212,6 +201,9 @@ function addItemToProductList(itemName) {
   newRemainElement.appendChild(newRemainName);
   newRemainElement.appendChild(newRemainAmount);
   remainList.appendChild(newRemainElement);
+
+  box2Elements = document.querySelectorAll('.box2 .list .product-item');
+
 }
 
 function createButton(className, tooltip, text) {
