@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="uk">
+    <meta charset="UTF-8">
+    <title>Buy List</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+	<main>
+		<section class="box1">
+			<section class="inputField">
+				<input type="text" class="input" placeholder="Назва товару"/>
+				<button class="addBut tooltip" data-tooltip="Додати до списку"><b>Додати</b></button>
+			</section>
+			<section class="products">
+				<div class="element">
+					<div class="itemName">
+						<span class="product">
+							Помідори
+						</span>
+						<!--<span class="product">
+							<s>Помідори</s>
+						</span>-->
+					</div>
+					<div class="amountBut">
+						<button class="minusBut tooltip" data-tooltip="На один менше">-</button>
+						<span class="amount">2</span>
+						<button class="plusBut tooltip" data-tooltip="На один більше">+</button>
+					</div> 
+					<div class="buyDelBut">
+						<button class="buyBut tooltip" data-tooltip="Позначити купленим">Куплено</button>
+						<button class="deleteBut tooltip" data-tooltip="Видалити зі списку">×</button>
+					</div>
+					<!--<div class="amountBut">
+						<button class="minusBut"><b>-</b></button>
+						<span class="amount">2</span>
+						<button class="plusBut"><b>+</b></button>
+					</div>	
+					<div class="buyDelBut">
+						<button class="buyBut">Куплено</button>
+						<button class="deleteBut"><b>×</b></button>
+						<button class="buyBut tooltip" data-tooltip="Позначити некупленим">Не Куплено</button>-->
+					</div>
+				</div>
+				<div class="element">
+					<div class="itemName">
+						<span class="product">
+							Печиво
+						</span>
+					</div>
+					<div class="amountBut">
+						<button class="minusBut tooltip" data-tooltip="На один менше">-</button>
+						<span class="amount">2</span>
+						<button class="plusBut tooltip" data-tooltip="На один більше">+</button>
+					</div> 
+					<div class="buyDelBut">
+						<button class="buyBut tooltip" data-tooltip="Позначити купленим">Куплено</button>
+						<button class="deleteBut tooltip" data-tooltip="Видалити зі списку">×</button>
+					</div>
+				</div>
+				<div class="element">
+					<div class="itemName">
+						<span class="product">
+							Сир
+						</span>
+						<!--<input type="text" class="prodInp" value="Сир"/>-->
+					</div>
+					<div class="amountBut">
+						<button class="minusBut tooltip" data-tooltip="На один менше">-</button>
+						<span class="amount">1</span>
+						<button class="plusBut tooltip" data-tooltip="На один більше">+</button>
+					</div> 
+					<div class="buyDelBut">
+						<button class="buyBut tooltip" data-tooltip="Позначити купленим">Куплено</button>
+						<button class="deleteBut tooltip" data-tooltip="Видалити зі списку">×</button>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section class="box2">
+			<section class="remain">
+				<div class="label">
+					<p><b>Залишилося</b></p>
+				</div>
+				<hr class="divider" />
+				<div class="list">
+					<span class="product-item">
+						<span class="name">Печиво</span>
+						<span class="amount2">2</span>
+					</span>
+					<span class="product-item">
+						<span class="name">Сир</span>
+						<span class="amount2">1</span>
+					</span>
+					<span class="product-item">
+						<span class="name">Помідори</span>
+						<span class="amount2">2</span>
+					</span>
+				</div>
+			</section>
+			<hr class="divider" />
+			<section class="bought">
+				<div class="label">
+					<p><b>Куплено</b></p>
+				</div>
+				<hr class="divider" />
+				<div class="list">
+				</div>
+			</section>
+		</section>
+	</main>
+	<footer>
+		<div class="badge">
+			<div class="badgeLabel"><span><b>Список покупок<br><br></b></span></div>
+			<div class="created"><span>Створила:<br></span></div>
+			<div class="name"><span>Трюхан Тетяна</span></div>
+		</div>
+	</footer>
+	<script src="script.js"></script>
+</body>
+</html>

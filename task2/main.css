@@ -1,0 +1,319 @@
+:root {
+	--size: 30px;
+	--padding: 20px;
+	/*--font: 0.9em Segoe Print, sans-serif;*/
+	--font: 0.9em Comic Sans MS, sans-serif;
+	--red-color: rgb(255, 29, 74);
+	--dark-red-color: rgb(195, 32, 65);
+	--green-color: rgb(69, 195, 69);
+	--dark-green-color: rgb(22, 152, 22);
+	--grey-color: rgb(236, 236, 236);
+	--dark-grey-color: rgb(191, 191, 191);
+	--light-grey-color: rgb(203, 203, 203);
+	--blue-color: rgb(43, 131, 208);
+	--dark-blue-color: rgb(42, 116, 182);
+	--purple-color: rgb(154, 9, 154);
+	--orange-color: orange;
+}
+
+body {
+	background-color: rgb(211, 211, 211);
+}
+
+main {
+	padding: 10px 10px;
+}
+
+.box1, .box2 {
+	float: left;
+	width: 68%;
+	border: 1px solid var(--light-grey-color);
+	border-radius: 5px;
+	background-color: #ffffff;
+}
+
+.box2 {
+	width: 30%;
+	float: right;
+}
+
+.inputField {
+	display: flex;
+	justify-content: center;
+	padding: var(--padding);
+}
+
+.input {
+	box-sizing: border-box;
+	width: 75%;
+	height: 45px;
+	border: 1px solid var(--light-grey-color);
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	font: var(--font);
+}
+
+.addBut {
+	width: 25%;
+	height: 40px;
+	border: none;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-color: var(--blue-color);
+	box-shadow: 0px 5px 0px 0px var(--dark-blue-color);
+	font: var(--font);
+	color: #ffffff;
+}
+
+.element {
+	display: flex;
+	justify-content: space-between;
+	padding: var(--padding);
+	border-top: 1px solid var(--light-grey-color);
+}
+
+.itemName, .amountBut, .buyDelBut {
+	display: inline-block;
+	width: 35%;
+}
+
+.itemName {
+	display: flex;
+	align-items: center;
+}
+
+.buyDelBut {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: right;
+}
+
+.amountBut {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.product {
+	font: var(--font);
+}
+
+.minusBut, .plusBut {
+	width: var(--size);
+	height: 28px;
+	border: none;
+	border-radius: 30px;
+	background-color:var(--red-color);
+	box-shadow: 0px 3px 0px 0px var(--dark-red-color);
+	font: bold var(--font);	
+	color: #ffffff;
+	margin: 5px;
+}
+
+.amount {
+	display: inline-block;
+	height: var(--size);
+	width: var(--size);
+	border-radius: 5px;
+	background-color: var(--grey-color);
+	text-align: center;
+	font: var(--font);
+	line-height: var(--size);
+}
+
+.plusBut {
+	background-color:var(--green-color);
+	box-shadow: 0px 3px 0px 0px var(--dark-green-color);
+	color: #ffffff;
+}
+
+.buyBut {
+	width: 95px;
+	height: var(--size);
+	border: 1px solid var(--dark-grey-color);
+	border-radius: 5px;
+	background-color: rgb(242, 242, 242);
+	box-shadow: 0px 3px 0px 0px var(--dark-grey-color);
+	font: bold var(--font);
+	font-size: 0.75em;
+	color: rgb(98, 98, 98);
+}  
+
+.deleteBut {
+	width: var(--size);
+	height: var(--size);
+	border: none;
+	border-radius: 5px;
+	background-color:var(--red-color);
+	box-shadow: 0px 3px 0px 0px var(--dark-red-color);	
+	font: bold var(--font);	
+	color: #ffffff;
+	margin-left: 5px;
+}
+
+.prodInp {
+	box-sizing: border-box;
+	width: 100%;
+	height: 30px;
+	border: 1px solid var(--light-grey-color);
+	border-radius: 2px;
+	padding: 5px;
+	font: var(--font);
+}
+
+.prodInp:focus, .input:focus {
+	border:deepskyblue;
+	outline: 2px solid deepskyblue;
+}
+
+.input::placeholder {
+	font-size: medium;
+	padding: 10px;
+}
+
+.deleteBut:active, .minusBut:active {
+	background-color: var(--dark-red-color);
+}
+
+.plusBut:active {
+	background-color: var(--dark-green-color);
+}
+
+.buyBut:active {
+	background-color: var(--dark-grey-color);
+}
+
+.addBut:active {
+	background-color: var(--dark-blue-color);
+}
+
+.list, .label {
+	margin: var(--padding);
+	font: var(--font);
+}
+
+.label {
+	font-size: large;
+}
+
+.bought .list .product-item .name, .bought .list .product-item .amount2{
+	text-decoration: line-through;
+}
+
+.product-item {
+	display: inline-block;
+	height: 25px;
+	border-radius: 5px;
+	background-color: var(--grey-color);
+	padding: 8px;
+	margin-right: 5px;
+	margin-bottom: 5px;;
+}
+
+.amount2 {
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	border-radius: 20px;
+	background-color: rgb(244, 175, 0);
+	text-align: center;
+	line-height: 25px;
+	color: #ffffff;
+}
+
+.badge {
+	position: fixed;
+	bottom: -50px;
+	margin-left: 10px;
+	margin-top: 10px;
+	height: 90px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-color: var(--purple-color);	
+	padding: 10px;
+	transition: all 1s ease;
+	font: var(--font);
+	color: #ffffff;
+}
+
+.badgeLabel {
+	margin-top: 7px;
+	font-size: large;
+}
+
+.created {
+	font-size: small;
+}
+
+.name {
+	font-size: medium;
+}
+
+.badge:hover {
+	transform: translateY(-50px);
+	background-color: var(--orange-color);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip::before {
+    content: attr(data-tooltip);
+    visibility: hidden;
+    min-width: 70px;
+    background-color: purple;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transform: translate(-50%, 50%) scale(0);
+    opacity: 0;
+    transition: all 1.7s ease-in-out;
+    bottom: calc(100% - 10px);
+    left: 50%;
+}
+
+.tooltip:hover::before {
+	transform: translate(-50%, -30%) scaleX(1);
+    visibility: visible;
+    opacity: 1;
+}
+
+.product-item .crossed {
+	text-decoration: line-through;
+	color: #999999;
+}
+
+@media print {
+	.badge {
+		height: 40px;
+		bottom: 0px;
+		background-color: white;
+		border: 2px solid var(--purple-color);
+		color: #000;
+	}
+	.badgeLabel {
+		display: none;
+	}
+}
+
+@media (max-width: 620px) {	
+	.box1, .box2 {
+		float: left;
+		width: 100%;
+		print-color-adjust: exact;
+	}
+	.box2 {
+		margin-top: 15px;
+	}
+}
